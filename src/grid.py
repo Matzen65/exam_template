@@ -9,7 +9,8 @@ class Grid:
 
     def __init__(self):
         """Skapa ett objekt av klassen Grid"""
-        # Spelplanen lagras i en lista av listor. Vi använder "list comprehension" för att sätta tecknet för "empty" på varje plats på spelplanen.
+        # Spelplanen lagras i en lista av listor. Vi använder "list comprehension"
+        # för att sätta tecknet för "empty" = ".", på varje plats på spelplanen.
         self.data = [[self.empty for y in range(self.width)] for z in range(
             self.height)]
 
@@ -52,6 +53,8 @@ class Grid:
         for j in range(1, self.width - 1):
             self.set(j, 0, self.wall)
             self.set(j, self.height - 1, self.wall)
+
+
 
 
     # Används i filen pickups.py

@@ -9,8 +9,10 @@ class Item:
     def __str__(self):
         return self.symbol
 
-
-pickups = [Item("carrot"), Item("apple"), Item("strawberry"), Item("cherry"), Item("watermelon"), Item("radish"), Item("cucumber"), Item("meatball")]
+pickups = [Item("Carrot", 20, "C"), Item("Apple", 20, "A"),
+           Item("Strawberry", 20, "S"), Item("Cherry", 20, "C"),
+           Item("watermelon", 20, "W"), Item("radish", 5, "R"),
+           Item("cucumber", 10, "G"), Item("Meatball", 50,"M")]
 
 
 def randomize(grid):
