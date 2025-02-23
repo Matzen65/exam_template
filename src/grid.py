@@ -6,6 +6,7 @@ class Grid:
     height = 12
     empty = "."  # Tecken för en tom ruta
     wall = "■"   # Tecken för en ogenomtränglig vägg
+    block_wall = "O"   # Tecken för en ogenomtränglig vägg
 
     def __init__(self):
         """Skapa ett objekt av klassen Grid"""
@@ -54,7 +55,16 @@ class Grid:
             self.set(j, 0, self.wall)
             self.set(j, self.height - 1, self.wall)
 
+        """skapar väggar inne i spelplanen"""
+        for x in range(20, 32):             # vägg nr 1 x-led
+            self.set(x, 3, self.block_wall)
+        for x in range(4, 15):              # vägg nr 2 x-led
+            self.set(x, 4, self.block_wall)
+        for y in range(4, 10):              # vägg nr 3 y-leda
 
+            self.set(31, y, self.block_wall)
+        for y in range(5, 10):               # vägg nr 4 y-led
+            self.set(9, y, self.block_wall)
 
 
     # Används i filen pickups.py

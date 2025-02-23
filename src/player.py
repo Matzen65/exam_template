@@ -19,7 +19,11 @@ class Player:
         new_pos_y = self.pos_y + dy
 
         if grid.get(new_pos_x, new_pos_y) == grid.wall:
-            print("Du kan inte lämna spelplanen!")
+            print("You can't exit from the game field !!!")
+            return False # Returnera False om det står något i vägen
+
+        if grid.get(new_pos_x, new_pos_y) == grid.block_wall:
+            print("You need to blow this wall to pass !!!")
             return False # Returnera False om det står något i vägen
 
         return True
