@@ -4,7 +4,6 @@ from . import pickups
 
 player = Player(17, 5)
 score = 0
-
 inventory = []
 
 g = Grid()
@@ -12,6 +11,7 @@ g.set_player(player)
 g.make_walls()
 g.make_block_walls()
 g.make_trap()
+g.make_spade()
 pickups.randomize(g)
 
 
@@ -31,17 +31,17 @@ while not command.casefold() in ["q", "x"]:
     command = input("Use WASD to move, Q/X to quit. ")
     command = command.casefold()[:1]
 
-    if command == "d" and player.can_move(1, 0, g):  # move right
+    if command == "d" and player.can_move(1, 0, g, inventory):  # move right
         # TODO: skapa funktioner, så vi inte behöver upprepa så mycket kod för riktningarna "W,A,S"
         player.move(1, 0)
         score -= 1 # golvet är lava man förlorar ett poäng per steg
-    elif command == "s" and player.can_move(0, 1, g):  # move down
+    elif command == "s" and player.can_move(0, 1, g, inventory):  # move down
         player.move(0, 1)
         score -= 1
-    elif command == "w" and player.can_move(0, -1, g):  # move up
+    elif command == "w" and player.can_move(0, -1, g, inventory):  # move up
         player.move(0, -1)
         score -= 1
-    elif command == "a" and player.can_move(-1, 0, g):  # move left
+    elif command == "a" and player.can_move(-1, 0, g, inventory):  # move left
         player.move(-1, 0)
         score -= 1
 
@@ -60,9 +60,17 @@ while not command.casefold() in ["q", "x"]:
         #g.set(player.pos_x, player.pos_y, g.empty)
         g.clear(player.pos_x, player.pos_y)
 
+    #if maybe_item == "X":
+
     if maybe_item == "X":
         print("Ooouch!!! You fell in a trap, it cost you 10 points")
+        # trap hamnar inte i Inventory
         score += -10
+
+    if maybe_item == "#":
+        print("You found a spade, put it in your inventory and use to remove a wallblock!")
+        inventory.append("spade")
+
 
 # Hit kommer vi när while-loopen slutar
 print("Thank you for playing!")

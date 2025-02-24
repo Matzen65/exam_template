@@ -1,6 +1,7 @@
 import random
 
 class Grid:
+    # class Grid
     """Representerar spelplanen. Du kan ändra standardstorleken och tecknen för olika rutor. """
     width = 36
     height = 12
@@ -8,14 +9,14 @@ class Grid:
     wall = "■"   # Tecken för en ogenomtränglig yttre vägg
     block_wall = "O"   # Tecken för en vägg som kan förstöras
     trap = "X"
+    spade = "#"
 
     def __init__(self):
-        """Skapa ett objekt av klassen Grid"""
+        """Skapa ett "objekt" av klassen Grid"""
         # Spelplanen lagras i en lista av listor. Vi använder "list comprehension"
         # för att sätta tecknet för "empty" = ".", på varje plats på spelplanen.
         self.data = [[self.empty for y in range(self.width)] for z in range(
             self.height)]
-
 
     def get(self, x, y):
         """Hämta det som finns på en viss position"""
@@ -77,6 +78,8 @@ class Grid:
     def make_trap(self):
         self.set(16, 2, self.trap)
 
+    def make_spade(self):
+        self.set(20, 1, self.spade)
 
     # Används i filen pickups.pyw
     def get_random_x(self):
@@ -86,7 +89,6 @@ class Grid:
     def get_random_y(self):
         """Slumpa en y-position på spelplanen"""
         return random.randint(0, self.height-1)
-
 
     def is_empty(self, x, y):
         """Returnerar True om det inte finns något på aktuell ruta"""
