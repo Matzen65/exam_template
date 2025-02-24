@@ -5,8 +5,9 @@ class Grid:
     width = 36
     height = 12
     empty = "."  # Tecken för en tom ruta
-    wall = "■"   # Tecken för en ogenomtränglig vägg
-    block_wall = "O"   # Tecken för en ogenomtränglig vägg
+    wall = "■"   # Tecken för en ogenomtränglig yttre vägg
+    block_wall = "O"   # Tecken för en vägg som kan förstöras
+    trap = "X"
 
     def __init__(self):
         """Skapa ett objekt av klassen Grid"""
@@ -46,7 +47,7 @@ class Grid:
 
 
     def make_walls(self):
-        """Skapa väggar runt hela spelplanen"""
+        """Skapa oförstörbara väggar runt hela spelplanen"""
         for i in range(self.height):
             self.set(0, i, self.wall)
             self.set(self.width - 1, i, self.wall)
@@ -55,19 +56,29 @@ class Grid:
             self.set(j, 0, self.wall)
             self.set(j, self.height - 1, self.wall)
 
-        """skapar väggar inne i spelplanen"""
+    def make_block_walls(self):
+        """skapar förstörbara väggar inne i spelplanen"""
         for x in range(20, 32):             # vägg nr 1 x-led
             self.set(x, 3, self.block_wall)
         for x in range(4, 15):              # vägg nr 2 x-led
             self.set(x, 4, self.block_wall)
         for y in range(4, 10):              # vägg nr 3 y-leda
-
             self.set(31, y, self.block_wall)
         for y in range(5, 10):               # vägg nr 4 y-led
             self.set(9, y, self.block_wall)
 
+        """ skapar öppningar i väggarna """
+        self.clear(10,4)    #se funktion rad 31 ovan
+        self.clear(28, 3)
+        #self.set(10, 4, self.empty)
+        #self.set(28, 3, self.empty)
 
-    # Används i filen pickups.py
+        """ skapar en fälla inne på spelplanen"""
+    def make_trap(self):
+        self.set(16, 2, self.trap)
+
+
+    # Används i filen pickups.pyw
     def get_random_x(self):
         """Slumpa en x-position på spelplanen"""
         return random.randint(0, self.width-1)

@@ -18,6 +18,10 @@ class Player:
         new_pos_x = self.pos_x + dx
         new_pos_y = self.pos_y + dy
 
+        #if grid.get(new_pos_x, new_pos_y) == grid.trap:
+        #    print("Ooouch!!! You fell in a trap, it cost you 10 points")
+            #score += -10
+
         if grid.get(new_pos_x, new_pos_y) == grid.wall:
             print("You can't exit from the game field !!!")
             return False # Returnera False om det står något i vägen

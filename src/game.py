@@ -4,11 +4,14 @@ from . import pickups
 
 player = Player(17, 5)
 score = 0
+
 inventory = []
 
 g = Grid()
 g.set_player(player)
 g.make_walls()
+g.make_block_walls()
+g.make_trap()
 pickups.randomize(g)
 
 
@@ -50,13 +53,16 @@ while not command.casefold() in ["q", "x"]:
 
     maybe_item = g.get(player.pos_x, player.pos_y)  # Varje ny player position checkas för föremål
 
-    if isinstance(maybe_item, pickups.Item): # we found something
-        score += maybe_item.value # Beroende på hittat föremål ökas Score
-        inventory.append(maybe_item.name)  # funnet föremål läggs i inventory-listan
+    if isinstance(maybe_item, pickups.Item):    # we found something
+        score += maybe_item.value               # Beroende på hittat föremål ökas/minskas Score
+        inventory.append(maybe_item.name)       # funnet föremål läggs i inventory-listan
         print(f"You found a {maybe_item.name}, worth {maybe_item.value} points.")
         #g.set(player.pos_x, player.pos_y, g.empty)
         g.clear(player.pos_x, player.pos_y)
 
+    if maybe_item == "X":
+        print("Ooouch!!! You fell in a trap, it cost you 10 points")
+        score += -10
 
 # Hit kommer vi när while-loopen slutar
 print("Thank you for playing!")
