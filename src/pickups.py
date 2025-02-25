@@ -12,8 +12,8 @@ class Item:
 
 pickups = [Item("Carrot", 20, "C"), Item("Apple", 20, "A"),
            Item("Strawberry", 20, "S"), Item("Cherry", 20, "C"),
-           Item("watermelon", 20, "W"), Item("radish", 5, "R"),
-           Item("cucumber", 10, "c"), Item("Meatball", 50, "M")]
+           Item("watermelon", 20, "W"), Item("radish", 20, "R"),
+           Item("cucumber", 20, "c"), Item("Meatball", 30, "M")]
            #Item("Spade", 0, "#")]
 
 

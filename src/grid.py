@@ -10,6 +10,8 @@ class Grid:
     block_wall = "O"   # Tecken för en vägg som kan förstöras
     trap = "X"
     spade = "#"
+    key = "P"
+    treasure = "¤"
 
     def __init__(self):
         """Skapa ett "objekt" av klassen Grid"""
@@ -69,8 +71,8 @@ class Grid:
             self.set(9, y, self.block_wall)
 
         """ skapar öppningar i väggarna """
-        self.clear(10,4)    #se funktion rad 31 ovan
-        self.clear(28, 3)
+        #self.clear(10,4)    #se funktion rad 31 ovan
+        #self.clear(28, 3)
         #self.set(10, 4, self.empty)
         #self.set(28, 3, self.empty)
 
@@ -80,6 +82,13 @@ class Grid:
 
     def make_spade(self):
         self.set(20, 1, self.spade)
+
+    """ skapar en nyckel och en skattkista inne på spelplanen"""
+    def make_key(self):
+        self.set(13, 9, self.key)
+
+    def make_treasure(self):
+        self.set(17, 9, self.treasure)
 
     # Används i filen pickups.pyw
     def get_random_x(self):
