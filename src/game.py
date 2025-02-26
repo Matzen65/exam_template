@@ -5,6 +5,7 @@ from . import pickups
 player = Player(17, 5)
 score = 0
 inventory = []
+moves = 0
 
 g = Grid()
 g.set_player(player)
@@ -15,6 +16,7 @@ g.make_spade()
 g.make_key()
 g.make_treasure()
 pickups.randomize(g)
+
 
 
 # TODO: flytta denna till en annan fil
@@ -28,28 +30,38 @@ def print_status(game_grid):
 command = "a"
 # Loopa tills användaren trycker Q eller X.
 while not command.casefold() in ["q", "x"]:
-    print_status(g)
 
+    print(" number of moves", moves)
+    mod = moves % 25
+    #print("resten är just nu ", mod)
+    #Här lägger vi ut en extra frukt efter 25 steg
+    if mod == 0:
+        extra = pickups.randomize_extra(g)
+        print(f"You are moving fast, one {extra}, Bonus fruit is placed on the game field!")
+    moves += 1
+
+
+    print_status(g)
     command = input("Use WASD to move, Q/X to quit. ")
     command = command.casefold()[:1]
 
-    if command == "d" and player.can_move(1, 0, g, inventory, score):  # move right
+    if command == "d" and player.can_move(1, 0, g, inventory):  # move right
         # TODO: skapa funktioner, så vi inte behöver upprepa så mycket kod för riktningarna "W,A,S"
         player.move(1, 0)
         score -= 1 # golvet är lava man förlorar ett poäng per steg
-    elif command == "s" and player.can_move(0, 1, g, inventory, score):  # move down
+    elif command == "s" and player.can_move(0, 1, g, inventory):  # move down
         player.move(0, 1)
         score -= 1
-    elif command == "w" and player.can_move(0, -1, g, inventory, score):  # move up
+    elif command == "w" and player.can_move(0, -1, g, inventory):  # move up
         player.move(0, -1)
         score -= 1
-    elif command == "a" and player.can_move(-1, 0, g, inventory, score):  # move left
+    elif command == "a" and player.can_move(-1, 0, g, inventory):  # move left
         player.move(-1, 0)
         score -= 1
 
     elif command == "i": # Check for inventory
         if inventory:
-            print("Inventorys:", ", ".join(inventory))
+            print("Inventory's:", ", ".join(inventory))
         else:
             print("You have nothing in your pack.")
 
@@ -64,13 +76,13 @@ while not command.casefold() in ["q", "x"]:
 
     #if maybe_item == "X":
 
-    if maybe_item == "X":
+    if maybe_item == ",":
         print("Ooouch!!! You fell in a trap, it cost you 10 points")
         # trap hamnar inte i Inventory
         score += -10
 
     if maybe_item == "#":
-        print("You found a spade, put it in your inventory and use to remove a wallblock!")
+        print("You found a spade, put it in your inventory and use to remove a wall block!")
         inventory.append("spade")
         g.clear(player.pos_x, player.pos_y) # tar bort objektet från spelplanen
 

@@ -10,4 +10,5 @@ så springer man lätt på den. För att lättare testa spelet har jag ändrat d
 J. Spade, den har symbolen "#" och fungerar utmärkt, den gräver hål i de inre väggarna men de yttre
 får den inte rå på.
 
-K. Nyckel och skattkista fungerar nu
+K. Nyckel och skattkista fungerar nu. Jag tänkte att kistan inte ska blockera vägen så man
+kan passera över den.

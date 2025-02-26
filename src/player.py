@@ -16,8 +16,7 @@ class Player:
         self.pos_x += dx
         self.pos_y += dy
 
-    def can_move(self, dx, dy, grid,inventory, score): # kollar 1 steg framåt i rörelseriktningen
-        #from src.game import inventory # Den här raden startar om spelet av någon anledning men behövs för spaden nedan
+    def can_move(self, dx, dy, grid,inventory): # kollar 1 steg framåt i rörelseriktningen
         new_pos_x = self.pos_x + dx
         new_pos_y = self.pos_y + dy
 
@@ -31,27 +30,17 @@ class Player:
 
         if grid.get(new_pos_x, new_pos_y) == grid.block_wall:
             print("You need to dig this wall to pass !!!")
-
             if "spade" in inventory:
                 print("You use your spade and dig through the wall")
                 grid.set(new_pos_x, new_pos_y, ".")
                 inventory.remove("spade")
                 print("Your spade is wasted and you throw it away")
-                #return True # Returnera True om spelaren har en spade att gräva genom muren med
+            return False # Returnera True om spelaren har en spade att gräva genom muren med
 
         if grid.get(new_pos_x, new_pos_y) == grid.treasure:
             print("You found a locked coffin, could it be a treasure ???")
             #return False # Returnera False om man inte kan interagera med kistan
-            """
-            if "key" in inventory:
-                print("You use your key to open the coffin, inside you find 100 goldcoins")
-                #grid.set(new_pos_x, new_pos_y, ".")
-                inventory.remove("key")
-                print("Your key got stuck in the lock, you have to leave it behind")
-                #return True # Returnera True om spelaren har en spade att gräva genom muren med
-                score += 100
-                return score
-            """
+
 
         return True
         #TODO: returnera True om det inte står något i vägen
