@@ -1,20 +1,30 @@
 
-Detta är min version av eximinationsuppgiften.
+Detta är min version av examination suppgiften.
 
-Jag har utfört hela Version 1- Grundkrav.
-Utöver Version 1 har jag gjort några uppgifter i Version - nice to have.
+Jag har utfört hela Version 1-Grundkrav.
+I Version 2-Nice to have, har jag gjort alla uppgifter utom "N - jump".
 
 I. Fällor, min fälla är inte osynlig men jag gjorde den ursprungligen som ett kommatecken så har man bråttom
 så springer man lätt på den.
 
 J. Spade, den har symbolen "#" och fungerar utmärkt, den gräver hål i de inre väggarna men de yttre
-får den inte rå på.
+får den inte rå på. spadarna är ett av föremålen som måste finnas innan Exit kan nås.
 
 K. Nyckel och skattkista fungerar, kistan går att passera över då den ej kan plockas upp,
 men försvinner när man låst upp den. En av nycklarna slumpas ut på spelplanen.
+Kistorna är ett av föremålen som måste finnas innan Exit kan nås.
 
-L. Bördig jord, för vart 25e steg dyker det upp en grönsak slumpvis på spelplanen.
-Man får textinfo om att det kommit upp en ny grönsak.
+L. Bördig jord, för vart 25:e steg dyker det upp en slumpvis frukt/grönsak på spelplanen.
+Man får textinfo om att det kommit upp en ny grönsak. Dessa grönsaker tillhör ej de som måste
+samlas in för att öppna Exit-dörren.
 
-M. Exit, det finns och fungerar men har inte hunnit lägga till att den bara funkar när alla frukter
-är bortplockade
+M. Exit - Dörren dyker upp när det är 3 objekt kvar och spelaren får se vilka objekt som återstår.
+Försöker man ändå öppna dörren så får man veta vilka objekt som återstår innan dörren låses upp.
+När alla objekt har samlats in så är Exit aktiverad och avslutar spelet med command "x".
+
+De objekt som krävs för Exit är ENDAST de föremål som finns på spelplanen vid spelets början.
+De uppdykande Bonusfrukterna räknas inte, men de kan bytas mot originalen.
+t.ex. när man får veta vilka tre objekt som återstår att ta för att aktivera Exit så fungerar
+även de som kommit till som bonus.
+
+Slutligen, jag har avaktiverat command "x" då det är lätt att av misstag trycka på x under spelets gång.

@@ -17,7 +17,8 @@ pickups = [Item("Carrot", 20, "C"), Item("Apple", 20, "A"),
            Item("Strawberry", 20, "S"), Item("Cherry", 20, "C"),
            Item("Watermelon", 20, "W"), Item("Radish", 20, "R"),
            Item("Meatball", 30, "M")]
-
+#exit list är en lista över alla ursprungliga föremål, när alla är tagna kan man använda Exit = E
+exit_list = ["C","A","S","C","W","R","M","¤","¤","¤","#","#","#","P","P","P"]
 
 def randomize(grid):
     for item in pickups:

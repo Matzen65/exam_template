@@ -1,5 +1,8 @@
 import random
 
+from src.pickups import exit_list
+
+
 class Grid:
     # class Grid
     """Representerar spelplanen. Du kan ändra standardstorleken och tecknen för olika rutor. """
@@ -98,6 +101,7 @@ class Grid:
     def make_spade(self):
         self.set(33, 4, self.spade)
         self.set(4, 5, self.spade)
+        self.set(2, 2, self.spade)
 
         """ skapar 2 fast placerade nycklar och 3 skattkistor inne på spelplanen """
          # En tredje nyckel slumpas också ut någonstans på spelplanen
@@ -112,12 +116,14 @@ class Grid:
                 return False
 
     def make_exit(self):
-        while True:
-            x = self.get_random_x()
-            y = self.get_random_y()
-            if self.is_empty(x, y):
-                self.set(x, y, self.exit)
-                return False
+        if len(exit_list) == 3:
+
+            while True:
+                x = self.get_random_x()
+                y = self.get_random_y()
+                if self.is_empty(x, y):
+                    self.set(x, y, self.exit)
+                    return False
 
     def make_treasure(self):
         self.set(4, 2, self.treasure)
