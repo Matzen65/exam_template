@@ -10,8 +10,11 @@ så springer man lätt på den.
 J. Spade, den har symbolen "#" och fungerar utmärkt, den gräver hål i de inre väggarna men de yttre
 får den inte rå på.
 
-K. Nyckel och skattkista fungerar nu. Kistan försvinner när man låst upp den.
-En av nycklarna slumpas ut på spelplanen.
+K. Nyckel och skattkista fungerar, kistan går att passera över då den ej kan plockas upp,
+men försvinner när man låst upp den. En av nycklarna slumpas ut på spelplanen.
 
 L. Bördig jord, för vart 25e steg dyker det upp en grönsak slumpvis på spelplanen.
 Man får textinfo om att det kommit upp en ny grönsak.
+
+M. Exit, det finns och fungerar men har inte hunnit lägga till att den bara funkar när alla frukter
+är bortplockade

@@ -12,6 +12,7 @@ class Grid:
     spade = "#"
     key = "P"
     treasure = "¤"
+    exit = "E"
 
     #player = "@"
 
@@ -108,6 +109,14 @@ class Grid:
             y = self.get_random_y()
             if self.is_empty(x, y):
                 self.set(x, y, self.key)
+                return False
+
+    def make_exit(self):
+        while True:
+            x = self.get_random_x()
+            y = self.get_random_y()
+            if self.is_empty(x, y):
+                self.set(x, y, self.exit)
                 return False
 
     def make_treasure(self):

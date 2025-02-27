@@ -15,6 +15,7 @@ g.make_trap()
 g.make_spade()
 g.make_key()
 g.make_treasure()
+g.make_exit()
 pickups.randomize(g)
 
 
@@ -98,6 +99,10 @@ while not command.casefold() in ["q", "x"]:
             inventory.remove("key")
             score += 100
             g.clear(player.pos_x, player.pos_y) # tar bort objektet från spelplanen
+
+    if maybe_item == "E":
+        print("Congratulations, you have won the game!")
+        command = "x"
 
 
 # Hit kommer vi när while-loopen slutar
