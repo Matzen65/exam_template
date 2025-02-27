@@ -21,7 +21,6 @@ g.make_exit()
 pickups.randomize(g)
 
 
-
 # TODO: flytta denna till en annan fil
 def print_status(game_grid):
     """Visa spelvärlden och antal poäng."""
@@ -128,7 +127,6 @@ while not command.casefold() in ["q"]: #["q", "x"]:
             print("Congratulations, you have won the game!")
             command = "q"  # command "x" är avaktiverat
         else: print(f" Sorry the door is not yet active, you need to find those item to unlock, {exit_list}")
-
 
 # Hit kommer vi när while-loopen slutar
 print("Thank you for playing!")

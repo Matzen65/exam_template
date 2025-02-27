@@ -40,7 +40,6 @@ class Player:
         if grid.get(new_pos_x, new_pos_y) == grid.treasure:
             print("You found a locked coffin, could it be a treasure ???")
 
-
         return True
         #TODO: returnera True om det inte står något i vägen
 

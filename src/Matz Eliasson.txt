@@ -1,5 +1,7 @@
 
-Detta är min version av examination suppgiften.
+Detta är min version av examinations uppgiften.
+https://github.com/Matzen65/exam_template.git
+
 
 Jag har utfört hela Version 1-Grundkrav.
 I Version 2-Nice to have, har jag gjort alla uppgifter utom "N - jump".
