@@ -1,4 +1,6 @@
 import random
+
+
 class Item:
     """Representerar saker man kan plocka upp."""
 
@@ -10,10 +12,12 @@ class Item:
     def __str__(self):
         return self.symbol
 
+
 pickups = [Item("Carrot", 20, "C"), Item("Apple", 20, "A"),
            Item("Strawberry", 20, "S"), Item("Cherry", 20, "C"),
-           Item("watermelon", 20, "W"), Item("radish", 20, "R"),
-           Item("cucumber", 20, "c"), Item("Meatball", 30, "M")]
+           Item("Watermelon", 20, "W"), Item("Radish", 20, "R"),
+           Item("Meatball", 30, "M")]
+
 
 def randomize(grid):
     for item in pickups:

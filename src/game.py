@@ -31,7 +31,7 @@ command = "a"
 # Loopa tills användaren trycker Q eller X.
 while not command.casefold() in ["q", "x"]:
 
-    print(" number of moves", moves)
+    print("Number of moves", moves)
     mod = moves % 25
     #print("resten är just nu ", mod)
     #Här lägger vi ut en extra frukt efter 25 steg
@@ -94,6 +94,7 @@ while not command.casefold() in ["q", "x"]:
     if maybe_item == "¤":
         if "key" in inventory:
             print("You use the key and find a treasure worth 100 points")
+            print("Your key got stuck in the lock and removed from your pack")
             inventory.remove("key")
             score += 100
             g.clear(player.pos_x, player.pos_y) # tar bort objektet från spelplanen

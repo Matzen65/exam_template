@@ -2,13 +2,16 @@
 Detta är min version av eximinationsuppgiften.
 
 Jag har utfört hela Version 1- Grundkrav.
-Utöver Version 1 har jag knaprat några uppgifter i Version - nice to have.
+Utöver Version 1 har jag gjort några uppgifter i Version - nice to have.
 
 I. Fällor, min fälla är inte osynlig men jag gjorde den ursprungligen som ett kommatecken så har man bråttom
-så springer man lätt på den. För att lättare testa spelet har jag ändrat den till ett stort "X".
+så springer man lätt på den.
 
 J. Spade, den har symbolen "#" och fungerar utmärkt, den gräver hål i de inre väggarna men de yttre
 får den inte rå på.
 
-K. Nyckel och skattkista fungerar nu. Jag tänkte att kistan inte ska blockera vägen så man
-kan passera över den.
+K. Nyckel och skattkista fungerar nu. Kistan försvinner när man låst upp den.
+En av nycklarna slumpas ut på spelplanen.
+
+L. Bördig jord, för vart 25e steg dyker det upp en grönsak slumpvis på spelplanen.
+Man får textinfo om att det kommit upp en ny grönsak.

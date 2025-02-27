@@ -12,7 +12,8 @@ class Grid:
     spade = "#"
     key = "P"
     treasure = "¤"
-    #aplayer = "@"
+
+    #player = "@"
 
     def __init__(self):
         """Skapa ett "objekt" av klassen Grid"""
@@ -62,18 +63,24 @@ class Grid:
 
     def make_block_walls(self):
         """skapar förstörbara väggar inne i spelplanen"""
+        self.set(6, 2, self.block_wall)
+        self.set(11, 2, self.block_wall)
         for x in range(20, 35):             # vägg nr 1 x-led
             self.set(x, 2, self.block_wall)
-        for x in range(4, 17):              # vägg nr 2 x-led
+        for x in range(4, 12):              # vägg nr 2 x-led
             self.set(x, 3, self.block_wall)
-        for x in range(4, 10):
+        for x in range(2, 12):
             self.set(x, 1, self.block_wall)
-        for y in range(1, 10):              # vägg nr 3 y-leda
-            self.set(2, y, self.block_wall)
-        for y in range(1, 10):               # vägg nr 4 y-led
+        for x in range(4, 12):
+            self.set(x, 4, self.block_wall)
+
+        for y in range(1, 8):              # vägg nr 3 y-leda
+            self.set(1, y, self.block_wall)
+        for y in range(3, 8):               # vägg nr 4 y-led
             self.set(3, y, self.block_wall)
-        for y in range(3, 7):               # vägg nr 4 y-led
-            self.set(33, y, self.block_wall)
+        for y in range(3, 10):               # vägg nr 4 y-led
+            self.set(34, y, self.block_wall)
+            self.set(32, y, self.block_wall)
 
         """ skapar öppningar i väggarna """
         self.clear(3,2)    #se funktion rad 31 ovan
@@ -83,19 +90,30 @@ class Grid:
 
         """ skapar en fälla inne på spelplanen"""
     def make_trap(self):
-        self.set(3, 2, self.trap)
-        self.set(34, 5, self.trap)
+        for y in range(3, 8):
+            self.set(2,y, self.trap)
+        self.set(33, 5, self.trap)
 
     def make_spade(self):
-        self.set(34, 3, self.spade)
-        self.set(30, 9, self.spade)
+        self.set(33, 4, self.spade)
+        self.set(4, 5, self.spade)
 
-    """ skapar en nyckel och en skattkista inne på spelplanen"""
+        """ skapar 2 fast placerade nycklar och 3 skattkistor inne på spelplanen """
+         # En tredje nyckel slumpas också ut någonstans på spelplanen
     def make_key(self):
-        self.set(34, 1, self.key)
+        self.set(33, 1, self.key)
+        self.set(8, 2, self.key)
+        while True:
+            x = self.get_random_x()
+            y = self.get_random_y()
+            if self.is_empty(x, y):
+                self.set(x, y, self.key)
+                return False
 
     def make_treasure(self):
-        self.set(1, 1, self.treasure)
+        self.set(4, 2, self.treasure)
+        self.set(33, 3, self.treasure)
+        self.set(3, 9, self.treasure)
 
     # Används i filen pickups.pyw
     def get_random_x(self):
